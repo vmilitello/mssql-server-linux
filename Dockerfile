@@ -2,8 +2,11 @@ FROM microsoft/mssql-server-linux:latest
 
 MAINTAINER Vincenzo Militello - 902 Software
 
-LABEL description="microsoft/mssql-server-linux with mssql-tools already insalled"
+LABEL description="microsoft/mssql-server-linux with mssql-tools already installed"
 
+# update xenia souces.list
+ADD sources.list /etc/apt/sources.list
+ 
 ENV ACCEPT_EULA=Y
 
 RUN \
