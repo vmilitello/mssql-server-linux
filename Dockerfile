@@ -1,14 +1,15 @@
 FROM microsoft/mssql-server-linux:latest
 
-MAINTAINER Vincenzo Militello - 902 Software
+LABEL MAINTAINER="Vincenzo Militello <v.militello@902software.com>"
 
-LABEL description="microsoft/mssql-server-linux with mssql-tools already installed"
+LABEL description="MSSQL on Linux with mssql-tools already installed"
 
 ENV ACCEPT_EULA=Y
 
 RUN \
-apt-get update && \
-apt-get install -y python sudo
+apt-get update  \
+&& apt-get install -y python sudo \
+&& rm -rf /var/lib/apt/lists/*
   
 ENV LANG en_US.UTF-8
 ENV LANGUAGE en_US:en
